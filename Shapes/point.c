@@ -18,5 +18,5 @@ void DestroyPoint(Point* point) {
 }
 
 void PrintPoint(Point* point) {
-    printf("(%d, %d)", point->x, point->y);
+    printf("(%d, %d)\n", point->x, point->y);
 }
