@@ -15,5 +15,6 @@ typedef struct {
 Polygon* CreatePolygon(Point** points, int count);
 void DestroyPolygon(Polygon* polygon);
 void DrawPolygon(Screen* screen, Polygon* polygon, char c);
+void PrintPolygon(Polygon* polygon);
 
 #endif //FLATDRAWER_POLYGON_H
