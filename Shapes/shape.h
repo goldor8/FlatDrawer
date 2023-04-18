@@ -21,7 +21,7 @@ struct {
     void* shape;
 } typedef Shape;
 
-Shape* CreateShape(enum ShapeType shapeType);
+Shape* CreateShape(enum ShapeType shapeType, int id, void* shape);
 void DestroyShape(Shape* shape);
 void DrawShape(Screen* screen, Shape* shape, char c);
 

@@ -12,4 +12,6 @@ struct {
     Shape** shapes;
 } typedef Layer;
 
+void addShape(Layer* layer, Shape* shape);
+
 #endif //FLATDRAWER_LAYER_H
