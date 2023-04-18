@@ -9,10 +9,15 @@
 #include "line.h"
 #include "circle.h"
 
-Shape* CreateShape(enum ShapeType type, int id, void* genericShape) {
+
+int GetNextId() {
+    return currentId++;
+}
+
+Shape* CreateShape(enum ShapeType type, void* genericShape) {
     Shape* shape = malloc(sizeof(Shape));
     shape->shapeType = type;
-    shape->id = id;
+    shape->id = GetNextId();
     shape->shape = genericShape;
     return shape;
 }
