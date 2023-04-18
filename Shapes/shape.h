@@ -6,7 +6,6 @@
 #define FLATDRAWER_SHAPE_H
 #include "../screen.h"
 
-unsigned int currentId = 0;
 int GetNextId();
 
 enum ShapeType {
@@ -27,6 +26,7 @@ struct {
 Shape* CreateShape(enum ShapeType shapeType, void* shape);
 void DestroyShape(Shape* shape);
 void DrawShape(Screen* screen, Shape* shape, char c);
+void PrintShape(Shape* shape);
 
 Shape *CreateEmptyShape();
 Shape *CreatePointShape(int px, int py);

@@ -14,6 +14,7 @@ struct {
 Point* CreatePoint(int x, int y);
 void DestroyPoint(Point* point);
 void PrintPoint(Point* point);
+void PrintPointName(Point* point, char* name);
 void DrawPoint(Screen* screen, Point* point, char c);
 
 #endif //FLATDRAWER_POINT_H
