@@ -23,8 +23,7 @@ void DrawRect(Screen* screen, Rect* rect, char c);
 
 void PrintRect(Rect* rect){
     printf("Rect: \n");
-    printf("\tp1: ");
-    PrintPoint(rect->p1);
+    PrintPointName(rect->p1, "\tp1: ");
     printf("\twidth: %d\n", rect->width);
     printf("\theight: %d\n", rect->height);
 }

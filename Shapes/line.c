@@ -20,8 +20,7 @@ void DestroyLine(Line* line) {
 }
 
 void PrintLine(Line* line) {
-    printf("Line: ");
-    PrintPoint(line->a);
-    printf(" -> ");
-    PrintPoint(line->b);
+    printf("Line: \n");
+    PrintPointName(line->a, "\tp1");
+    PrintPointName(line->b, "\tp2");
 }

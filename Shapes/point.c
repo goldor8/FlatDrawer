@@ -20,3 +20,8 @@ void DestroyPoint(Point* point) {
 void PrintPoint(Point* point) {
     printf("(%d, %d)\n", point->x, point->y);
 }
+
+void PrintPointName(Point* point, char* name){
+    printf("%s: ", name);
+    PrintPoint(point);
+}

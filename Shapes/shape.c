@@ -12,6 +12,7 @@
 #include "rect.h"
 #include "polygon.h"
 
+unsigned int currentId = 0;
 
 int GetNextId() {
     return currentId++;
@@ -22,6 +23,29 @@ Shape* CreateShape(enum ShapeType type, void* genericShape) {
     shape->shapeType = type;
     shape->shape = genericShape;
     return shape;
+}
+
+void PrintShape(Shape* shape){
+    switch (shape->shapeType) {
+        case POINT:
+            PrintPointName(shape->shape, "Point");
+            break;
+        case LINE:
+            PrintLine(shape->shape);
+            break;
+        case CIRCLE:
+            PrintCircle(shape->shape);
+            break;
+        case SQUARE:
+            PrintSquare(shape->shape);
+            break;
+        case RECT:
+            PrintRect(shape->shape);
+            break;
+        case POLYGON:
+            PrintPolygon(shape->shape);
+            break;
+    }
 }
 
 Shape* CreateEmptyShape() {

@@ -18,5 +18,7 @@ void DestroyCircle(Circle* circle) {
 }
 
 void PrintCircle(Circle* circle) {
-    printf("Circle: center = (%d, %d), radius = %d", circle->center->x, circle->center->y, circle->radius);
+    printf("Circle: \n");
+    PrintPointName(circle->center, "\tcenter: ");
+    printf("\tradius: %d\n", circle->radius);
 }
