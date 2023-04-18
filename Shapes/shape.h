@@ -28,4 +28,12 @@ Shape* CreateShape(enum ShapeType shapeType, void* shape);
 void DestroyShape(Shape* shape);
 void DrawShape(Screen* screen, Shape* shape, char c);
 
+Shape *CreateEmptyShape();
+Shape *CreatePointShape(int px, int py);
+Shape *CreateLineShape(int px1, int py1, int px2, int py2);
+Shape *CreateSquareShape(int px, int py, int length);
+Shape *CreateRectangleShape(int px, int py, int width, int height);
+Shape *CreateCircleShape(int px, int py, int radus);
+Shape *CreatePolygonShape(int lst[], int n);
+
 #endif //FLATDRAWER_SHAPE_H

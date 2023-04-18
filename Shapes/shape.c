@@ -8,6 +8,9 @@
 #include "point.h"
 #include "line.h"
 #include "circle.h"
+#include "square.h"
+#include "rect.h"
+#include "polygon.h"
 
 
 int GetNextId() {
@@ -15,11 +18,51 @@ int GetNextId() {
 }
 
 Shape* CreateShape(enum ShapeType type, void* genericShape) {
-    Shape* shape = malloc(sizeof(Shape));
+    Shape* shape = CreateEmptyShape();
     shape->shapeType = type;
-    shape->id = GetNextId();
     shape->shape = genericShape;
     return shape;
+}
+
+Shape* CreateEmptyShape() {
+    Shape* shape = malloc(sizeof(Shape));
+    shape->id = GetNextId();
+    return shape;
+}
+
+Shape* CreatePointShape(int px, int py) {
+    Point* point = CreatePoint(px, py);
+    return CreateShape(POINT, point);
+}
+
+Shape* CreateLineShape(int px1, int py1, int px2, int py2) {
+    Point* p1 = CreatePoint(px1, py1);
+    Point* p2 = CreatePoint(px2, py2);
+    Line* line = CreateLine(p1, p2);
+    return CreateShape(LINE, line);
+}
+
+Shape* CreateSquareShape(int px, int py, int length) {
+    Point* point = CreatePoint(px, py);
+    Square* square = CreateSquare(point, length);
+    return CreateShape(SQUARE, square);
+}
+
+Shape* CreateRectangleShape(int px, int py, int width, int height) {
+    Point* point = CreatePoint(px, py);
+    Rect* rect = CreateRect(point, width, height);
+    return CreateShape(RECT, rect);
+}
+
+Shape* CreateCircleShape(int px, int py, int radius) {
+    Point* point = CreatePoint(px, py);
+    Circle* circle = CreateCircle(point, radius);
+    return CreateShape(CIRCLE, circle);
+}
+
+Shape* CreatePolygonShape(int lst[], int n) {
+    Polygon* polygon = CreatePolygon(lst, n);
+    return CreateShape(POLYGON, polygon);
 }
 
 void DestroyShape(Shape* shape) {
@@ -34,10 +77,13 @@ void DestroyShape(Shape* shape) {
             DestroyCircle(shape->shape);
             break;
         case SQUARE:
+            DestroySquare(shape->shape);
             break;
         case RECT:
+            DestroyRect(shape->shape);
             break;
         case POLYGON:
+            DestroyPolygon(shape->shape);
             break;
     }
     free(shape);
