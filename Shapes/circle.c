@@ -14,6 +14,7 @@ Circle* CreateCircle(Point* center, int radius) {
 }
 
 void DestroyCircle(Circle* circle) {
+    DestroyPoint(circle->center);
     free(circle);
 }
 
