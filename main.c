@@ -1,24 +1,65 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "app.h"
-#include "shapes/shape.h"
-#include "shapes/point.h"
-#include "shapes/circle.h"
-#include "shapes/line.h"
-#include "Shapes/polygon.h"
-#include "Shapes/point.h"
-#include "Shapes/rect.h"
-#include "Shapes/square.h"
+#include "layer.h"
+
+static int running = 1;
+static Layer* layer = NULL;
+
+void AppAddShape() {
+    AddShape(layer, ReadShape());
+}
+
+void AppRemoveShape() {
+    printf("Enter shape id: ");
+    int id;
+    scanf("%d", &id);
+    RemoveShape(layer, id);
+}
+
+void AppPrintShapes() {
+    ShapeElement* current = layer->shapeList;
+    while (current != NULL) {
+        PrintShape(current->data);
+        current = current->next;
+    }
+}
+
+void App() {
+    printf("Hello World!");
+    layer = CreateLayer("test");
+
+    while(running){
+        printf("What do you want to do?\n");
+        printf("1. Add a shape\n");
+        printf("2. Remove a shape\n");
+        printf("3. Print all shapes\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        int choice;
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                AppAddShape();
+                break;
+            case 2:
+                AppRemoveShape();
+                break;
+            case 3:
+                AppPrintShapes();
+                break;
+            case 4:
+                running = 0;
+                break;
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+
+    DestroyLayer(layer);
+}
 
 int main() {
     printf("Hello, World!\n");
-    Shape** shapes = malloc(sizeof(Shape*) * 3);
-    shapes[0] = CreatePointShape(1, 2);
-    shapes[1] = CreateLineShape(1, 2, 3, 4);
-    shapes[2] = CreateCircleShape(1, 2, 3);
-    for (int i = 0; i < 3; i++) {
-        PrintShape(shapes[i]);
-        DestroyShape(shapes[i]);
-    }
+    App();
     return 0;
 }
