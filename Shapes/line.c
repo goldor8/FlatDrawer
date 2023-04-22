@@ -21,14 +21,14 @@ void DestroyLine(Line* line) {
 
 void PrintLine(Line* line) {
     printf("Line: \n");
-    PrintPointName(line->a, "\tp1");
-    PrintPointName(line->b, "\tp2");
+    PrintPointName(line->a, "\tStart point");
+    PrintPointName(line->b, "\tEnd point");
 }
 
 Line* ReadLine() {
-    printf("Enter point 1: \n");
+    printf("Enter start point: \n");
     Point* a = ReadPoint();
-    printf("Enter point 2: \n");
+    printf("Enter end point: \n");
     Point* b = ReadPoint();
     return CreateLine(a, b);
 }

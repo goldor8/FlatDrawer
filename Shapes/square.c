@@ -22,7 +22,7 @@ void DrawSquare(Screen* screen, Square* square, char c);
 
 void PrintSquare(Square* square){
     printf("Square: \n");
-    PrintPointName(square->point, "\tp1: ");
+    PrintPointName(square->point, "\ttop left");
     printf("\tlength: %d\n", square->length);
 }
 

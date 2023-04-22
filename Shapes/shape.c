@@ -36,6 +36,7 @@ Shape* CreateShape(enum ShapeType type, void* genericShape) {
 }
 
 void PrintShape(Shape* shape){
+    printf("Shape id: %d\n", shape->id);
     switch (shape->shapeType) {
         case POINT:
             PrintPointName(shape->shape, "Point");

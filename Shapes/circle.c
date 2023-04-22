@@ -20,7 +20,7 @@ void DestroyCircle(Circle* circle) {
 
 void PrintCircle(Circle* circle) {
     printf("Circle: \n");
-    PrintPointName(circle->center, "\tcenter: ");
+    PrintPointName(circle->center, "\tcenter");
     printf("\tradius: %d\n", circle->radius);
 }
 
