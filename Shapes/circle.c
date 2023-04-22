@@ -23,3 +23,12 @@ void PrintCircle(Circle* circle) {
     PrintPointName(circle->center, "\tcenter: ");
     printf("\tradius: %d\n", circle->radius);
 }
+
+Circle* ReadCircle() {
+    printf("Enter center point: \n");
+    Point* center = ReadPoint();
+    int radius;
+    printf("Enter radius: ");
+    scanf("%d", &radius);
+    return CreateCircle(center, radius);
+}

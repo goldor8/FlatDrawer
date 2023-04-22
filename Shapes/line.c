@@ -24,3 +24,11 @@ void PrintLine(Line* line) {
     PrintPointName(line->a, "\tp1");
     PrintPointName(line->b, "\tp2");
 }
+
+Line* ReadLine() {
+    printf("Enter point 1: \n");
+    Point* a = ReadPoint();
+    printf("Enter point 2: \n");
+    Point* b = ReadPoint();
+    return CreateLine(a, b);
+}

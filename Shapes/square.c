@@ -25,3 +25,12 @@ void PrintSquare(Square* square){
     PrintPointName(square->point, "\tp1: ");
     printf("\tlength: %d\n", square->length);
 }
+
+Square* ReadSquare(){
+    printf("Enter top left point: \n");
+    Point* point = ReadPoint();
+    int length;
+    printf("Enter length: ");
+    scanf("%d", &length);
+    return CreateSquare(point, length);
+}

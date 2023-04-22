@@ -18,6 +18,16 @@ int GetNextId() {
     return currentId++;
 }
 
+void printShapesTypes() {
+    printf("Shape types:\n");
+    printf("0 - Point\n");
+    printf("1 - Line\n");
+    printf("2 - Circle\n");
+    printf("3 - Square\n");
+    printf("4 - Rectangle\n");
+    printf("5 - Polygon\n");
+}
+
 Shape* CreateShape(enum ShapeType type, void* genericShape) {
     Shape* shape = CreateEmptyShape();
     shape->shapeType = type;
@@ -112,3 +122,36 @@ void DestroyShape(Shape* shape) {
     }
     free(shape);
 }
+
+Shape* ReadShape() {
+    int shapeType;
+    printShapesTypes();
+    printf("Enter shape type: ");
+    scanf("%d", &shapeType);
+    Shape* shapeData = CreateEmptyShape();
+    shapeData->shapeType = shapeType;
+    void* shape;
+    switch (shapeType) {
+        case POINT:
+            shape = ReadPoint();
+            break;
+        case LINE:
+            shape = ReadLine();
+            break;
+        case CIRCLE:
+            shape = ReadCircle();
+            break;
+        case SQUARE:
+            shape = ReadSquare();
+            break;
+        case RECT:
+            shape = ReadRect();
+            break;
+        case POLYGON:
+            shape = ReadPolygon();
+            break;
+    }
+    shapeData->shape = shape;
+    return shapeData;
+}
+

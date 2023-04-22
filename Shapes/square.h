@@ -16,5 +16,6 @@ Square* CreateSquare(Point* point, int length);
 void DestroySquare(Square* square);
 void DrawSquare(Screen* screen, Square* square, char c);
 void PrintSquare(Square* square);
+Square* ReadSquare();
 
 #endif //FLATDRAWER_SQUARE_H

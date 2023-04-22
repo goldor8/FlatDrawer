@@ -16,5 +16,6 @@ Line* CreateLine(Point* a, Point* b);
 void DestroyLine(Line* line);
 void DrawLine(Screen* screen, Line* line, char c);
 void PrintLine(Line* line);
+Line* ReadLine();
 
 #endif //FLATDRAWER_LINE_H

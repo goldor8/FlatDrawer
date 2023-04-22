@@ -27,3 +27,15 @@ void PrintRect(Rect* rect){
     printf("\twidth: %d\n", rect->width);
     printf("\theight: %d\n", rect->height);
 }
+
+Rect* ReadRect(){
+    printf("Enter top left point: \n");
+    Point* point = ReadPoint();
+    int width;
+    int height;
+    printf("Enter width: ");
+    scanf("%d", &width);
+    printf("Enter height: ");
+    scanf("%d", &height);
+    return CreateRect(point, width, height);
+}

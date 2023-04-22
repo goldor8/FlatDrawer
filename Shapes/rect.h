@@ -17,5 +17,6 @@ Rect* CreateRect(Point* p1, int width, int height);
 void DestroyRect(Rect* rect);
 void DrawRect(Screen* screen, Rect* rect, char c);
 void PrintRect(Rect* rect);
+Rect* ReadRect();
 
 #endif //FLATDRAWER_RECT_H
