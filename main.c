@@ -25,7 +25,6 @@ void AppPrintShapes() {
 }
 
 void App() {
-    printf("Hello World!");
     layer = CreateLayer("test");
 
     while(running){
