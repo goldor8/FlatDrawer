@@ -129,8 +129,6 @@ Shape* ReadShape() {
     printShapesTypes();
     printf("Enter shape type: ");
     scanf("%d", &shapeType);
-    Shape* shapeData = CreateEmptyShape();
-    shapeData->shapeType = shapeType;
     void* shape;
     switch (shapeType) {
         case POINT:
@@ -155,6 +153,8 @@ Shape* ReadShape() {
             printf("Invalid shape type\n");
             return ReadShape();
     }
+    Shape* shapeData = CreateEmptyShape();
+    shapeData->shapeType = shapeType;
     shapeData->shape = shape;
     return shapeData;
 }
