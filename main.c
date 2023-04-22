@@ -28,7 +28,7 @@ void App() {
     layer = CreateLayer("test");
 
     while(running){
-        printf("What do you want to do?\n");
+        printf("\n\nWhat do you want to do?\n");
         printf("1. Add a shape\n");
         printf("2. Remove a shape\n");
         printf("3. Print all shapes\n");

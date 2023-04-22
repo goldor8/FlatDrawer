@@ -151,6 +151,9 @@ Shape* ReadShape() {
         case POLYGON:
             shape = ReadPolygon();
             break;
+        default:
+            printf("Invalid shape type\n");
+            return ReadShape();
     }
     shapeData->shape = shape;
     return shapeData;
