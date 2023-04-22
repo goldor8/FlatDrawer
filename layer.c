@@ -5,9 +5,9 @@
 #include "layer.h"
 #include <stdlib.h>
 
-Layer* CreateLayer(Screen* screen) {
+Layer* CreateLayer(char* name) {
     Layer* layer = malloc(sizeof(Layer));
-    layer->screen = screen;
+    layer->name = name;
     layer->shapeList = NULL;
     return layer;
 }

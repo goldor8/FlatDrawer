@@ -14,11 +14,11 @@ struct shapeNode {
 typedef struct shapeNode ShapeElement;
 
 struct {
-    Screen* screen;
+    char* name;
     ShapeElement* shapeList;
 } typedef Layer;
 
-Layer* CreateLayer(Screen* screen);
+Layer* CreateLayer(char* name);
 void DestroyLayer(Layer* layer);
 void AddShape(Layer* layer, Shape* shape);
 void RemoveShape(Layer* layer, int id);
