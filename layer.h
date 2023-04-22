@@ -7,11 +7,20 @@
 #include "screen.h"
 #include "Shapes/shape.h"
 
+struct shapeNode {
+    Shape* data;
+    struct shapeNode* next;
+};
+typedef struct shapeNode ShapeElement;
+
 struct {
     Screen* screen;
-    Shape** shapes;
+    ShapeElement* shapeList;
 } typedef Layer;
 
-void addShape(Layer* layer, Shape* shape);
+Layer* CreateLayer(Screen* screen);
+void DestroyLayer(Layer* layer);
+void AddShape(Layer* layer, Shape* shape);
+void RemoveShape(Layer* layer, int id);
 
 #endif //FLATDRAWER_LAYER_H
