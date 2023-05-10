@@ -16,5 +16,6 @@ void DestroyPoint(Point* point);
 void PrintPoint(Point* point);
 void PrintPointName(Point* point, char* name);
 void DrawPoint(Screen* screen, Point* point, char c);
+Point* ReadPoint();
 
 #endif //FLATDRAWER_POINT_H

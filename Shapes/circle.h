@@ -16,5 +16,6 @@ Circle* CreateCircle(Point* center, int radius);
 void DestroyCircle(Circle* circle);
 void DrawCircle(Screen* screen, Circle* circle, char c);
 void PrintCircle(Circle* circle);
+Circle* ReadCircle();
 
 #endif //FLATDRAWER_CIRCLE_H

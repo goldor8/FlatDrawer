@@ -25,3 +25,12 @@ void PrintPointName(Point* point, char* name){
     printf("%s: ", name);
     PrintPoint(point);
 }
+
+Point* ReadPoint() {
+    int x, y;
+    printf("Enter x: ");
+    scanf("%d", &x);
+    printf("Enter y: ");
+    scanf("%d", &y);
+    return CreatePoint(x, y);
+}

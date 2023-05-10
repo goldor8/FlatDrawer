@@ -30,3 +30,15 @@ void PrintPolygon(Polygon* polygon){
         PrintPoint(polygon->points[i]);
     }
 }
+
+Polygon* ReadPolygon(){
+    int count;
+    printf("Enter number of points: ");
+    scanf("%d", &count);
+    Point** points = malloc(sizeof(Point*) * count);
+    for (int i = 0; i < count; i++) {
+        printf("Enter point %d: \n", i);
+        points[i] = ReadPoint();
+    }
+    return CreatePolygon(points, count);
+}

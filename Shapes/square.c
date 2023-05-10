@@ -22,6 +22,15 @@ void DrawSquare(Screen* screen, Square* square, char c);
 
 void PrintSquare(Square* square){
     printf("Square: \n");
-    PrintPointName(square->point, "\tp1: ");
+    PrintPointName(square->point, "\ttop left");
     printf("\tlength: %d\n", square->length);
+}
+
+Square* ReadSquare(){
+    printf("Enter top left point: \n");
+    Point* point = ReadPoint();
+    int length;
+    printf("Enter length: ");
+    scanf("%d", &length);
+    return CreateSquare(point, length);
 }

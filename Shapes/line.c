@@ -24,8 +24,16 @@ void DestroyLine(Line* line) {
 
 void PrintLine(Line* line) {
     printf("Line: \n");
-    PrintPointName(line->a, "\tp1");
-    PrintPointName(line->b, "\tp2");
+    PrintPointName(line->a, "\tStart point");
+    PrintPointName(line->b, "\tEnd point");
+}
+
+Line* ReadLine() {
+    printf("Enter start point: \n");
+    Point* a = ReadPoint();
+    printf("Enter end point: \n");
+    Point* b = ReadPoint();
+    return CreateLine(a, b);
 }
 
 void DrawLine(Screen* screen, Line* line){
