@@ -9,12 +9,15 @@ struct {
     char** buffer;
     int width;
     int height;
+    char background;
+    char foreground;
 } typedef Screen;
 
-Screen* CreateScreen(int width, int height);
+Screen* CreateScreen(int width, int height, char background, char foreground);
 void DestroyScreen(Screen* screen);
-void Set(Screen screen, int x, int y, char c);
-void Clear(Screen screen);
+void Set(Screen* screen, int x, int y);
+void Clear(Screen* screen);
+void Display(Screen* screen);
 
 
 #endif //FLATDRAWER_SCREEN_H

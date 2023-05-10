@@ -12,7 +12,7 @@
 #include "rect.h"
 #include "polygon.h"
 
-unsigned int currentId = 0;
+static unsigned int currentId = 0;
 
 int GetNextId() {
     return currentId++;

@@ -12,13 +12,13 @@
 
 int main() {
     printf("Hello, World!\n");
-    Shape** shapes = malloc(sizeof(Shape*) * 3);
-    shapes[0] = CreatePointShape(1, 2);
-    shapes[1] = CreateLineShape(1, 2, 3, 4);
-    shapes[2] = CreateCircleShape(1, 2, 3);
-    for (int i = 0; i < 3; i++) {
-        PrintShape(shapes[i]);
-        DestroyShape(shapes[i]);
-    }
+    Point* p1 = CreatePoint(10, 10);
+    Point* p2 = CreatePoint(50, 80);
+    Line* line = CreateLine(p1, p2);
+    Screen* screen = CreateScreen(100, 100, '.', '#');
+    DrawLine(screen, line);
+    Display(screen);
+    DestroyScreen(screen);
+    DestroyLine(line);
     return 0;
 }
