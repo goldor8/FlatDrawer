@@ -20,6 +20,8 @@ Current shape available:
     cmake ..
     cmake --build .
 
+then you can run the app with `./FlatDrawer`
+
 ## Author
 
 *Brisset Dimitri - Carceles Martial*
