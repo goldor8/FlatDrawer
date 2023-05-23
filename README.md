@@ -22,4 +22,4 @@ Current shape available:
 
 ## Author
 
-*Brisset Dimitri - Martial Carceles*
+*Brisset Dimitri - Carceles Martial*
