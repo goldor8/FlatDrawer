@@ -14,17 +14,11 @@ Current shape available:
 ## Build
 > The installation require CMake.
 
-`git clone https://github.com/goldor8/FlatDrawer`
-
-`cd FlatDrawer`
-
-`mkdir build`
-
-`cd build`
-
-`cmake ..`
-
-`cmake --build .`
+    git clone https://github.com/goldor8/FlatDrawer
+    mkdir FlatDrawer/build
+    cd FlatDrawer/build
+    cmake ..
+    cmake --build .
 
 ## Author
 
