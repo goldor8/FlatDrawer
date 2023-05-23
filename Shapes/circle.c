@@ -32,3 +32,32 @@ Circle* ReadCircle() {
     scanf("%d", &radius);
     return CreateCircle(center, radius);
 }
+
+void DrawCircle(Screen* screen, Circle* circle){
+    int x = 0;
+    int y = circle->radius;
+    int centerX = circle->center->x;
+    int centerY = circle->center->y;
+    int d = 1 - circle->radius;
+
+    while(x <= y){
+        Set(screen, centerX + x, centerY + y);
+        Set(screen, centerX + y, centerY + x);
+        Set(screen, centerX - x, centerY + y);
+        Set(screen, centerX - y, centerY + x);
+        Set(screen, centerX + x, centerY - y);
+        Set(screen, centerX + y, centerY - x);
+        Set(screen, centerX - x, centerY - y);
+        Set(screen, centerX - y, centerY - x);
+
+        if(d < 0) {
+            x++;
+            d += 2 * x + 1;
+        } else {
+            y--;
+            x++;
+            d += 2 * (x - y) + 2;
+        }
+
+    }
+}

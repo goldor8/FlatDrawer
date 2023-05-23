@@ -9,16 +9,11 @@
 #include "Shapes/point.h"
 #include "Shapes/rect.h"
 #include "Shapes/square.h"
+#include "commands.h"
+#include "layer.h"
 
 int main() {
     printf("Hello, World!\n");
-    Point* p1 = CreatePoint(10, 10);
-    Point* p2 = CreatePoint(50, 80);
-    Line* line = CreateLine(p1, p2);
-    Screen* screen = CreateScreen(100, 100, '.', '#');
-    DrawLine(screen, line);
-    Display(screen);
-    DestroyScreen(screen);
-    DestroyLine(line);
+    StartApp();
     return 0;
 }

@@ -34,3 +34,7 @@ Point* ReadPoint() {
     scanf("%d", &y);
     return CreatePoint(x, y);
 }
+
+void DrawPoint(Screen* screen, Point* point){
+    Set(screen, point->x, point->y);
+}

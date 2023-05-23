@@ -96,7 +96,11 @@ Shape* CreateCircleShape(int px, int py, int radius) {
 }
 
 Shape* CreatePolygonShape(int lst[], int n) {
-    Polygon* polygon = CreatePolygon(lst, n);
+    Point** points = malloc(sizeof(Point*) * n);
+    for (int i = 0; i < n; ++i) {
+        points[i] = CreatePoint(lst[i * 2], lst[i * 2 + 1]);
+    }
+    Polygon* polygon = CreatePolygon(points, n);
     return CreateShape(POLYGON, polygon);
 }
 
@@ -159,3 +163,25 @@ Shape* ReadShape() {
     return shapeData;
 }
 
+void DrawShape(Screen* screen, Shape* shape){
+    switch (shape->shapeType) {
+        case POINT:
+            DrawPoint(screen, shape->shape);
+            break;
+        case LINE:
+            DrawLine(screen, shape->shape);
+            break;
+        case CIRCLE:
+            DrawCircle(screen, shape->shape);
+            break;
+        case SQUARE:
+            DrawSquare(screen, shape->shape);
+            break;
+        case RECT:
+            DrawRect(screen, shape->shape);
+            break;
+        case POLYGON:
+            DrawPolygon(screen, shape->shape);
+            break;
+    }
+}

@@ -18,8 +18,6 @@ void DestroySquare(Square* square){
     free(square);
 }
 
-void DrawSquare(Screen* screen, Square* square, char c);
-
 void PrintSquare(Square* square){
     printf("Square: \n");
     PrintPointName(square->point, "\ttop left");
@@ -33,4 +31,17 @@ Square* ReadSquare(){
     printf("Enter length: ");
     scanf("%d", &length);
     return CreateSquare(point, length);
+}
+
+void DrawSquare(Screen* screen, Square* square){
+    int x = square->point->x;
+    int y = square->point->y;
+    int length = square->length;
+
+    for(int i = 0; i < length; i++){
+        Set(screen, x + i, y);
+        Set(screen, x + i, y + length - 1);
+        Set(screen, x, y + i);
+        Set(screen, x + length - 1, y + i);
+    }
 }

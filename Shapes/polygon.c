@@ -5,6 +5,7 @@
 #include "polygon.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "line.h"
 
 Polygon* CreatePolygon(Point** points, int count){
     Polygon* polygon = malloc(sizeof(Polygon));
@@ -20,8 +21,6 @@ void DestroyPolygon(Polygon* polygon){
     free(polygon->points);
     free(polygon);
 }
-
-void DrawPolygon(Screen* screen, Polygon* polygon, char c);
 
 void PrintPolygon(Polygon* polygon){
     printf("Polygon with %d points:\n", polygon->count);
@@ -41,4 +40,12 @@ Polygon* ReadPolygon(){
         points[i] = ReadPoint();
     }
     return CreatePolygon(points, count);
+}
+
+void DrawPolygon(Screen* screen, Polygon* polygon){
+    for (int i = 0; i < polygon->count; ++i) {
+        Point *pa = polygon->points[i];
+        Point *pb = polygon->points[(i + 1) % polygon->count];
+        StaticDrawLine(screen, pa->x, pa->y, pb->x, pb->y);
+    }
 }

@@ -16,8 +16,8 @@ struct {
 Screen* CreateScreen(int width, int height, char background, char foreground);
 void DestroyScreen(Screen* screen);
 void Set(Screen* screen, int x, int y);
-void Clear(Screen* screen);
-void Display(Screen* screen);
+void ClearScreen(Screen* screen);
+void DisplayScreen(Screen* screen);
 
 
 #endif //FLATDRAWER_SCREEN_H

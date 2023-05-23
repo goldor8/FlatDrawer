@@ -37,17 +37,21 @@ Line* ReadLine() {
 }
 
 void DrawLine(Screen* screen, Line* line){
+    StaticDrawLine(screen, line->a->x, line->a->y, line->b->x, line->b->y);
+}
+
+void StaticDrawLine(Screen* screen, int p1x, int p1y, int p2x, int p2y){
     int x1, x2, y1, y2;
-    if(line->a->x < line->b->x){
-        x1 = line->a->x;
-        x2 = line->b->x;
-        y1 = line->a->y;
-        y2 = line->b->y;
+    if(p1x < p2x){
+        x1 = p1x;
+        x2 = p2x;
+        y1 = p1y;
+        y2 = p2y;
     } else {
-        x1 = line->b->x;
-        x2 = line->a->x;
-        y1 = line->b->y;
-        y2 = line->a->y;
+        x1 = p2x;
+        x2 = p1x;
+        y1 = p2y;
+        y2 = p1y;
     }
 
     int dx = x2 - x1;

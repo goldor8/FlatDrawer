@@ -19,8 +19,6 @@ void DestroyRect(Rect* rect){
     free(rect);
 }
 
-void DrawRect(Screen* screen, Rect* rect, char c);
-
 void PrintRect(Rect* rect){
     printf("Rect: \n");
     PrintPointName(rect->p1, "\ttop left");
@@ -38,4 +36,21 @@ Rect* ReadRect(){
     printf("Enter height: ");
     scanf("%d", &height);
     return CreateRect(point, width, height);
+}
+
+void DrawRect(Screen* screen, Rect* rect){
+    int x = rect->p1->x;
+    int y = rect->p1->y;
+    int width = rect->width;
+    int height = rect->height;
+
+    for(int i = 0; i < width; i++){
+        Set(screen, x + i, y);
+        Set(screen, x + i, y + height - 1);
+    }
+
+    for(int i = 0; i < height; i++){
+        Set(screen, x, y + i);
+        Set(screen, x + width - 1, y + i);
+    }
 }

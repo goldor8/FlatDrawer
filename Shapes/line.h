@@ -15,6 +15,7 @@ struct {
 Line* CreateLine(Point* a, Point* b);
 void DestroyLine(Line* line);
 void DrawLine(Screen* screen, Line* line);
+void StaticDrawLine(Screen* screen, int p1x, int p1y, int p2x, int p2y);
 void PrintLine(Line* line);
 Line* ReadLine();
 

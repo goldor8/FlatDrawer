@@ -14,11 +14,10 @@ Screen* CreateScreen(int width, int height, char background, char foreground){
     screen->foreground = foreground;
     screen->buffer = (char**) malloc(sizeof(char*) * height);
     for (int i = 0; i < height; ++i) {
-        screen->buffer[i] = (char*) malloc(sizeof(char) * width+1);
+        screen->buffer[i] = (char*) malloc(sizeof(char) * width);
         for (int j = 0; j < width; ++j) {
             screen->buffer[i][j] = background;
         }
-        screen->buffer[i][width] = '\0';
     }
     return screen;
 }
@@ -31,11 +30,19 @@ void DestroyScreen(Screen* screen){
     free(screen);
 }
 
+int IsOnScreen(Screen* screen, int x, int y){
+    if(x < 0 || x >= screen->width || y < 0 || y >= screen->height){
+        return 0;
+    }
+    return 1;
+}
+
 void Set(Screen* screen, int x, int y){
+    if(!IsOnScreen(screen, x, y)) return;
     screen->buffer[y][x] = screen->foreground;
 }
 
-void Clear(Screen* screen){
+void ClearScreen(Screen* screen){
     for (int i = 0; i < screen->height; ++i) {
         for (int j = 0; j < screen->width; ++j) {
             screen->buffer[i][j] = screen->background;
@@ -43,8 +50,17 @@ void Clear(Screen* screen){
     }
 }
 
-void Display(Screen* screen){
+void DisplayScreen(Screen* screen){
+    //Concatenate all chars into a single string with spaces between chars and newlines between rows
+    char* buffer = (char*) malloc(sizeof(char) * (2 * screen->width * screen->height + screen->height + 1));
+    int index = 0;
     for (int i = 0; i < screen->height; ++i) {
-        printf("%s\n", screen->buffer[i]);
+        for (int j = 0; j < screen->width; ++j) {
+            buffer[index++] = screen->buffer[i][j];
+            buffer[index++] = ' ';
+        }
+        buffer[index++] = '\n';
     }
+    buffer[index] = '\0';
+    printf("%s", buffer);
 }

@@ -14,7 +14,7 @@ typedef struct {
 
 Circle* CreateCircle(Point* center, int radius);
 void DestroyCircle(Circle* circle);
-void DrawCircle(Screen* screen, Circle* circle, char c);
+void DrawCircle(Screen* screen, Circle* circle);
 void PrintCircle(Circle* circle);
 Circle* ReadCircle();
 

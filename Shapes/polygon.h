@@ -14,7 +14,7 @@ typedef struct {
 
 Polygon* CreatePolygon(Point** points, int count);
 void DestroyPolygon(Polygon* polygon);
-void DrawPolygon(Screen* screen, Polygon* polygon, char c);
+void DrawPolygon(Screen* screen, Polygon* polygon);
 void PrintPolygon(Polygon* polygon);
 Polygon* ReadPolygon();
 

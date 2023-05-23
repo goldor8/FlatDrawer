@@ -4,10 +4,11 @@
 
 #include "layer.h"
 #include <stdlib.h>
+#include <string.h>
 
 Layer* CreateLayer(char* name) {
     Layer* layer = malloc(sizeof(Layer));
-    layer->name = name;
+    layer->name = strcpy(malloc(strlen(name) + 1), name);
     layer->shapeList = NULL;
     return layer;
 }
@@ -20,6 +21,7 @@ void DestroyLayer(Layer* layer) {
         free(current);
         current = next;
     }
+    free(layer->name);
     free(layer);
 }
 
@@ -40,7 +42,7 @@ void AddShape(Layer* layer, Shape* shape) {
     current->next->next = NULL;
 }
 
-void RemoveShape(Layer* layer, int id) {
+int RemoveShape(Layer* layer, int id) {
     ShapeElement* current = layer->shapeList;
     ShapeElement* previous = NULL;
     while (current != NULL) {
@@ -52,9 +54,18 @@ void RemoveShape(Layer* layer, int id) {
             }
             DestroyShape(current->data);
             free(current);
-            return;
+            return 1;
         }
         previous = current;
+        current = current->next;
+    }
+    return 0;
+}
+
+void DrawLayer(Screen* screen, Layer* layer) {
+    ShapeElement* current = layer->shapeList;
+    while (current != NULL) {
+        DrawShape(screen, current->data);
         current = current->next;
     }
 }
