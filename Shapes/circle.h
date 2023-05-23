@@ -14,8 +14,11 @@ typedef struct {
 
 Circle* CreateCircle(Point* center, int radius);
 void DestroyCircle(Circle* circle);
+//Draw a circle on the screen
 void DrawCircle(Screen* screen, Circle* circle);
+//Print the circle informations to the console
 void PrintCircle(Circle* circle);
+//Read a circle from the user input
 Circle* ReadCircle();
 
 #endif //FLATDRAWER_CIRCLE_H

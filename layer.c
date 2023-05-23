@@ -10,6 +10,7 @@ Layer* CreateLayer(char* name) {
     Layer* layer = malloc(sizeof(Layer));
     layer->name = strcpy(malloc(strlen(name) + 1), name);
     layer->shapeList = NULL;
+    layer->visible = 1;
     return layer;
 }
 

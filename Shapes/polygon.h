@@ -14,8 +14,11 @@ typedef struct {
 
 Polygon* CreatePolygon(Point** points, int count);
 void DestroyPolygon(Polygon* polygon);
+//Draw a polygon on the screen
 void DrawPolygon(Screen* screen, Polygon* polygon);
+//Print the polygon informations to the console
 void PrintPolygon(Polygon* polygon);
+//Read a polygon from the user input
 Polygon* ReadPolygon();
 
 #endif //FLATDRAWER_POLYGON_H

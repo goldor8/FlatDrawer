@@ -15,8 +15,11 @@ struct {
 
 Screen* CreateScreen(int width, int height, char background, char foreground);
 void DestroyScreen(Screen* screen);
+//Set the pixel at the given coordinates to the foreground character
 void Set(Screen* screen, int x, int y);
+//Reset the screen to the background character
 void ClearScreen(Screen* screen);
+//Display the screen on the console
 void DisplayScreen(Screen* screen);
 
 

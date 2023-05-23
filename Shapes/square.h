@@ -14,8 +14,11 @@ struct {
 
 Square* CreateSquare(Point* point, int length);
 void DestroySquare(Square* square);
+//Draw a square on the screen
 void DrawSquare(Screen* screen, Square* square);
+//Print the square informations to the console
 void PrintSquare(Square* square);
+//Read a square from the user input
 Square* ReadSquare();
 
 #endif //FLATDRAWER_SQUARE_H

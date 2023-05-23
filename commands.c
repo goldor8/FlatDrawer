@@ -185,9 +185,11 @@ void PrintCommands(){
 
 void CommandUsage(Command* command){
     printf("%s\n", command->description);
-    printf("Argument usages:\n");
-    if(command->argsInfo != NULL)
+
+    if(command->argsInfo != NULL){
+        printf("\nArgument usages:\n");
         printf("\t%s\n", command->argsInfo);
+    }
     if(command->subCommandCount == 0)
         return;
     printf("\nSub commands:\n");
@@ -413,6 +415,24 @@ void SizeCommand(char** args, int argCount){
     SetScreenSize(width, height);
 }
 
+void ShowLayerCommand(char** args, int argCount){
+    if(argCount < 1){
+        printf("Not enough arguments\n");
+        return;
+    }
+
+    ShowLayer(args[0]);
+}
+
+void HideLayerCommand(char** args, int argCount){
+    if(argCount < 1){
+        printf("Not enough arguments\n");
+        return;
+    }
+
+    HideLayer(args[0]);
+}
+
 void InitCommands(){
     AddCommand("help", "Prints all commands", HelpCommand, NULL);
     AddCommand("clear", "Clears all layers and shapes", ClearCommand, NULL);
@@ -426,6 +446,8 @@ void InitCommands(){
     AddSubCommand((char*[]){"layer"}, 1, "remove", "Removes a layer", RemoveLayerCommand, "<name>");
     AddSubCommand((char*[]){"layer"}, 1, "list", "Lists all layers", ListLayersCommand, NULL);
     AddSubCommand((char*[]){"layer"}, 1, "select", "Selects a layer", SelectLayerCommand, "<name>");
+    AddSubCommand((char*[]){"layer"}, 1, "show", "Show a layer", ShowLayerCommand, "<name>");
+    AddSubCommand((char*[]){"layer"}, 1, "hide", "Hide a layer", HideLayerCommand, "<name>");
 
     AddCommand("point", "Creates a point", CreatePointCommand, "<x> <y>");
     AddCommand("line", "Creates a line", CreateLineCommand, "<x1> <y1> <x2> <y2>");

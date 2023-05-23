@@ -25,8 +25,11 @@ struct {
 
 Shape* CreateShape(enum ShapeType shapeType, void* shape);
 void DestroyShape(Shape* shape);
+//Draw a shape on the screen
 void DrawShape(Screen* screen, Shape* shape);
+//Print the shape informations to the console
 void PrintShape(Shape* shape);
+//Read a shape from the user input
 Shape* ReadShape();
 
 Shape* CreateEmptyShape();

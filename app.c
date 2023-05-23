@@ -77,6 +77,17 @@ Layer* AddLayer(char* name){
     return layer;
 }
 
+Layer* GetLayer(char* name){
+    LayerElement* current = layers;
+    while (current != NULL) {
+        if(strcmp(current->data->name, name) == 0) {
+            return current->data;
+        }
+        current = current->next;
+    }
+    return NULL;
+}
+
 void RemoveLayer(char* name){
     LayerElement* current = layers;
     LayerElement* previous = NULL;
@@ -107,10 +118,8 @@ void Draw(){
     ClearScreen(screen);
     LayerElement* current = layers;
     while (current != NULL) {
-        ShapeElement* shape = current->data->shapeList;
-        while (shape != NULL) {
-            DrawShape(screen, shape->data);
-            shape = shape->next;
+        if(current->data->visible == 1) {
+            DrawLayer(screen, current->data);
         }
         current = current->next;
     }
@@ -130,14 +139,11 @@ void ListLayers(){
 }
 
 int SetActiveLayer(char* name){
-    LayerElement* current = layers;
-    while (current != NULL) {
-        if (strcmp(current->data->name, name) == 0) {
-            activeLayer = current->data;
-            printf("Layer '%s' is now active.\n", name);
-            return 1;
-        }
-        current = current->next;
+    Layer* layer = GetLayer(name);
+    if(layer != NULL){
+        activeLayer = layer;
+        printf("Layer '%s' is now active.\n", name);
+        return 1;
     }
     printf("Layer with name '%s' does not exist.\n", name);
     return 0;
@@ -187,4 +193,14 @@ void SetScreenSize(int width, int height){
     DestroyScreen(screen);
     screen = CreateScreen(width, height, '.', '#');
     printf("Screen size set to %dx%d.\n", width, height);
+}
+
+void ShowLayer(char* name){
+    GetLayer(name)->visible = 1;
+    printf("Layer '%s' is now visible.\n", name);
+}
+
+void HideLayer(char* name){
+    GetLayer(name)->visible = 0;
+    printf("Layer '%s' is now hidden.\n", name);
 }
